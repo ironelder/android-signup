@@ -1,8 +1,8 @@
 package nextstep.signup.ui.component
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -17,10 +17,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun InputView(hint: String, changeListener: (String) -> Unit) {
+fun InputView( hint: String, changeListener: (String) -> Unit) {
     val inputValue by remember { mutableStateOf("") }
     TextField(modifier = Modifier
-        .width(296.dp)
+        .fillMaxWidth()
+        .padding(start = 16.dp, end = 16.dp, top = 0.dp, bottom = 0.dp)
         .height(53.dp),
         colors = TextFieldDefaults.colors(
             focusedIndicatorColor = Color(0xFF2196F3),
@@ -40,6 +41,5 @@ fun InputView(hint: String, changeListener: (String) -> Unit) {
 @Composable
 fun PreviewInputView() {
     InputView("이름을 입력해주세요") {
-        // do nothing
     }
 }
